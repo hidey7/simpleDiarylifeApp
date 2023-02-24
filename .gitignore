@@ -1,0 +1,4 @@
+*.storyboard
+Podfile*
+Pods
+SimpleDailylife.xcworkspace/

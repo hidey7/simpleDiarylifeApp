@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		C1C9780F29A440E900A31503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9780E29A440E900A31503 /* AppDelegate.swift */; };
 		C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9781029A440E900A31503 /* SceneDelegate.swift */; };
-		C1C9781329A440E900A31503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9781229A440E900A31503 /* ViewController.swift */; };
 		C1C9781629A440E900A31503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C9781429A440E900A31503 /* Main.storyboard */; };
 		C1C9781829A440EB00A31503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C9781729A440EB00A31503 /* Assets.xcassets */; };
 		C1C9781B29A440EB00A31503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C9781929A440EB00A31503 /* LaunchScreen.storyboard */; };
+		C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782929A4468B00A31503 /* ListViewController.swift */; };
+		C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782B29A446D300A31503 /* DetailViewController.swift */; };
+		C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782D29A4D2E200A31503 /* DiaryData.swift */; };
+		E4939E10DC3C0DD065E7F397 /* Pods_SimpleDailylife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B860F0BAF9FC7EBB357C6D /* Pods_SimpleDailylife.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01B860F0BAF9FC7EBB357C6D /* Pods_SimpleDailylife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleDailylife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75AE5A2062371F01121639B0 /* Pods-SimpleDailylife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDailylife.release.xcconfig"; path = "Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife.release.xcconfig"; sourceTree = "<group>"; };
+		A992BE6E4979F29BF734AF26 /* Pods-SimpleDailylife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDailylife.debug.xcconfig"; path = "Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife.debug.xcconfig"; sourceTree = "<group>"; };
 		C1C9780B29A440E900A31503 /* SimpleDailylife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDailylife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C9780E29A440E900A31503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1C9781029A440E900A31503 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C1C9781229A440E900A31503 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1C9781529A440E900A31503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1C9781729A440EB00A31503 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1C9781A29A440EB00A31503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1C9781C29A440EB00A31503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1C9782929A4468B00A31503 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		C1C9782B29A446D300A31503 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C1C9782D29A4D2E200A31503 /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4939E10DC3C0DD065E7F397 /* Pods_SimpleDailylife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CBD4BA2E89151F7AC21DFE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A992BE6E4979F29BF734AF26 /* Pods-SimpleDailylife.debug.xcconfig */,
+				75AE5A2062371F01121639B0 /* Pods-SimpleDailylife.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B84EFEAD0280011F4EDD4BD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01B860F0BAF9FC7EBB357C6D /* Pods_SimpleDailylife.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1C9780229A440E900A31503 = {
 			isa = PBXGroup;
 			children = (
 				C1C9780D29A440E900A31503 /* SimpleDailylife */,
 				C1C9780C29A440E900A31503 /* Products */,
+				4CBD4BA2E89151F7AC21DFE3 /* Pods */,
+				B84EFEAD0280011F4EDD4BD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +86,39 @@
 			children = (
 				C1C9780E29A440E900A31503 /* AppDelegate.swift */,
 				C1C9781029A440E900A31503 /* SceneDelegate.swift */,
-				C1C9781229A440E900A31503 /* ViewController.swift */,
-				C1C9781429A440E900A31503 /* Main.storyboard */,
+				C1C9782429A4410E00A31503 /* Controllers */,
+				C1C9782329A4410600A31503 /* Models */,
+				C1C9782229A4410100A31503 /* Views */,
 				C1C9781729A440EB00A31503 /* Assets.xcassets */,
 				C1C9781929A440EB00A31503 /* LaunchScreen.storyboard */,
 				C1C9781C29A440EB00A31503 /* Info.plist */,
 			);
 			path = SimpleDailylife;
+			sourceTree = "<group>";
+		};
+		C1C9782229A4410100A31503 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1C9781429A440E900A31503 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C1C9782329A4410600A31503 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1C9782D29A4D2E200A31503 /* DiaryData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1C9782429A4410E00A31503 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C1C9782929A4468B00A31503 /* ListViewController.swift */,
+				C1C9782B29A446D300A31503 /* DetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1C9781F29A440EB00A31503 /* Build configuration list for PBXNativeTarget "SimpleDailylife" */;
 			buildPhases = (
+				874815EE8FD1B81ACCA1F964 /* [CP] Check Pods Manifest.lock */,
 				C1C9780729A440E900A31503 /* Sources */,
 				C1C9780829A440E900A31503 /* Frameworks */,
 				C1C9780929A440E900A31503 /* Resources */,
+				A611CEA35411F6E4F5136C3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +189,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		874815EE8FD1B81ACCA1F964 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SimpleDailylife-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A611CEA35411F6E4F5136C3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C1C9780729A440E900A31503 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1C9781329A440E900A31503 /* ViewController.swift in Sources */,
 				C1C9780F29A440E900A31503 /* AppDelegate.swift in Sources */,
+				C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */,
+				C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */,
 				C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */,
+				C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +382,7 @@
 		};
 		C1C9782029A440EB00A31503 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A992BE6E4979F29BF734AF26 /* Pods-SimpleDailylife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +411,7 @@
 		};
 		C1C9782129A440EB00A31503 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75AE5A2062371F01121639B0 /* Pods-SimpleDailylife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
