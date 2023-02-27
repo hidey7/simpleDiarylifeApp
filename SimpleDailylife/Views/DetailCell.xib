@@ -16,17 +16,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="323.66666666666669" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-Cc-tAh">
-                        <rect key="frame" x="20" y="12.999999999999996" width="303.66666666666669" height="52.666666666666657"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fTT-Cc-tAh">
+                        <rect key="frame" x="20" y="15" width="303.66666666666669" height="53"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2S-Ll-XH5">
-                                <rect key="frame" x="0.0" y="0.0" width="303.66666666666669" height="20.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="303.66666666666669" height="26.666666666666668"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgI-5P-FjF">
-                                <rect key="frame" x="0.0" y="32.333333333333336" width="303.66666666666669" height="20.333333333333336"/>
+                                <rect key="frame" x="0.0" y="26.666666666666664" width="303.66666666666669" height="26.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,10 +35,11 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="fTT-Cc-tAh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="FWG-52-F4i"/>
-                    <constraint firstAttribute="bottom" secondItem="fTT-Cc-tAh" secondAttribute="bottom" constant="17.329999999999998" id="OQ3-cg-97m"/>
-                    <constraint firstAttribute="trailing" secondItem="fTT-Cc-tAh" secondAttribute="trailing" id="rZf-QW-oVt"/>
-                    <constraint firstItem="fTT-Cc-tAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="tOh-MC-vep"/>
+                    <constraint firstItem="fTT-Cc-tAh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="1tb-lB-qRn"/>
+                    <constraint firstAttribute="trailing" secondItem="fTT-Cc-tAh" secondAttribute="trailing" id="2Tp-g8-Eiw"/>
+                    <constraint firstItem="fTT-Cc-tAh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="3fV-sf-O7p"/>
+                    <constraint firstAttribute="bottom" secondItem="fTT-Cc-tAh" secondAttribute="bottom" constant="15" id="TuX-kE-A9U"/>
+                    <constraint firstItem="fTT-Cc-tAh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dNg-Vf-rC2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
