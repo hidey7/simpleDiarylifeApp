@@ -2,3 +2,5 @@
 Podfile*
 Pods
 SimpleDailylife.xcworkspace/
+*.xib
+

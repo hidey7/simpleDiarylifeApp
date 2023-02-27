@@ -15,6 +15,8 @@
 		C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782929A4468B00A31503 /* ListViewController.swift */; };
 		C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782B29A446D300A31503 /* DetailViewController.swift */; };
 		C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9782D29A4D2E200A31503 /* DiaryData.swift */; };
+		C1FE00DB29AC81B8002376ED /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FE00D929AC81B8002376ED /* DetailCell.swift */; };
+		C1FE00DC29AC81B8002376ED /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FE00DA29AC81B8002376ED /* DetailCell.xib */; };
 		E4939E10DC3C0DD065E7F397 /* Pods_SimpleDailylife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B860F0BAF9FC7EBB357C6D /* Pods_SimpleDailylife.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		C1C9782929A4468B00A31503 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		C1C9782B29A446D300A31503 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C1C9782D29A4D2E200A31503 /* DiaryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryData.swift; sourceTree = "<group>"; };
+		C1FE00D929AC81B8002376ED /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		C1FE00DA29AC81B8002376ED /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C1C9781429A440E900A31503 /* Main.storyboard */,
+				C1FE00DA29AC81B8002376ED /* DetailCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			children = (
 				C1C9782929A4468B00A31503 /* ListViewController.swift */,
 				C1C9782B29A446D300A31503 /* DetailViewController.swift */,
+				C1FE00D929AC81B8002376ED /* DetailCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 			files = (
 				C1C9781B29A440EB00A31503 /* LaunchScreen.storyboard in Resources */,
 				C1C9781829A440EB00A31503 /* Assets.xcassets in Resources */,
+				C1FE00DC29AC81B8002376ED /* DetailCell.xib in Resources */,
 				C1C9781629A440E900A31503 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +245,7 @@
 			files = (
 				C1C9780F29A440E900A31503 /* AppDelegate.swift in Sources */,
 				C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */,
+				C1FE00DB29AC81B8002376ED /* DetailCell.swift in Sources */,
 				C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */,
 				C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */,
 				C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */,

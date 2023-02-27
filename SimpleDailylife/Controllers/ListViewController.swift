@@ -10,7 +10,7 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
 
 //        loadDairyData()
-        
+        self.tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "detailCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,9 +57,11 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         let item = dairyDatas![indexPath.row]
-        cell.textLabel?.text = item.title
+        cell.previewString = item.sentence
+        cell.titleString = item.title
         return cell
     }
 
