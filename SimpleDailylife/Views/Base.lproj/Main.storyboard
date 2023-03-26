@@ -32,6 +32,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Journal" id="fdf-Nr-oKt">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="7Qy-kh-FXi">
+                            <connections>
+                                <action selector="showAllData:" destination="euG-8B-Vwx" id="zM8-iu-ZVX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bjc-xg-N7E">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

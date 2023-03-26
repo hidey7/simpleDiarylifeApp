@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var textView: UITextView!
     private let realm = try! Realm()
     var titleString: String! {
@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
     
     var selectedData: DairyData? {
         didSet {
-            print("unko")
             self.titleString = selectedData?.title
             self.id = selectedData?.id
         }
@@ -25,15 +24,32 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
         self.textView.text = selectedData?.sentence
         self.textView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            textView.contentInset = contentInsets
+            textView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        let contentInsets = UIEdgeInsets.zero
+            textView.contentInset = contentInsets
+            textView.scrollIndicatorInsets = contentInsets
     }
     
     override func viewDidAppear(_ animated: Bool) {
         textView.becomeFirstResponder()
     }
-
+    
 }
 
 
@@ -41,12 +57,11 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITextViewDelegate {
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        print(#function)
         return true
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        print(#function)
+        
         if !textView.text.isEmpty {
             
             if realm.object(ofType: DairyData.self, forPrimaryKey: self.id) == nil {
@@ -63,7 +78,7 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
     }
     
-
+    
     //MARK: - Realm methods
     private func save(dailyData: DairyData) {
         do {
@@ -85,5 +100,5 @@ extension DetailViewController: UITextViewDelegate {
         }
     }
     
-   
+    
 }

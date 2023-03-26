@@ -9,16 +9,18 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        loadDairyData()
         self.tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "detailCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
         loadDairyData()
     }
    
+    
+    @IBAction func showAllData(_ sender: UIBarButtonItem) {
+        print(dairyDatas)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
@@ -57,7 +59,6 @@ class ListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         let item = dairyDatas![indexPath.row]
         cell.previewString = item.sentence
@@ -65,6 +66,42 @@ class ListViewController: UITableViewController {
         return cell
     }
 
+    //スワイプでセル削除
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let id = dairyDatas!.count - (indexPath.row + 1)
+            
+            let deleteData = dairyDatas![indexPath.row]
+            try! realm.write {
+                realm.delete(deleteData)
+            }
+            
+            if indexPath.row != 0 {
+                
+                for i in 1...indexPath.row {
+                    
+                    let newData = DairyData()
+                    newData.title = dairyDatas![indexPath.row - i].title
+                    newData.sentence = dairyDatas![indexPath.row - i].sentence
+                    newData.id = id + (i - 1)
+                    try! realm.write {
+                        realm.add(newData, update: .modified)
+                        realm.delete(dairyDatas![indexPath.row - i])
+                    }
+                    
+                }
+                
+            }
+            
+            dairyDatas = realm.objects(DairyData.self).sorted(byKeyPath: "id", ascending: false)
+            
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    
     //MARK: - Table view delegate methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toDetail", sender: self)

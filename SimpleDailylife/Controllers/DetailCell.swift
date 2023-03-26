@@ -1,10 +1,3 @@
-//
-//  DetailCell.swift
-//  SimpleDailylife
-//
-//  Created by 始関秀弥 on 2023/02/27.
-//
-
 import UIKit
 
 class DetailCell: UITableViewCell {
