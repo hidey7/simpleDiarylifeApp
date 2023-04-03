@@ -6,6 +6,13 @@ class ListViewController: UITableViewController {
     private var dairyDatas: Results<DairyData>?
     private let realm = try! Realm()
 
+    private var classifiedData : [SectionData?] = []
+//    private var sectionTitleArray = [String()]
+    
+    @IBAction func printData(_ sender: UIBarButtonItem) {
+        print(dairyDatas)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -15,11 +22,6 @@ class ListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadDairyData()
-    }
-   
-    
-    @IBAction func showAllData(_ sender: UIBarButtonItem) {
-        print(dairyDatas)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,18 +53,24 @@ class ListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+//        return 1
+        return classifiedData.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dairyDatas!.count
+//        return dairyDatas!.count
+        return classifiedData[section]!.datas.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
-        let item = dairyDatas![indexPath.row]
-        cell.previewString = item.sentence
-        cell.titleString = item.title
+//        let item = dairyDatas![indexPath.row]
+//        cell.previewString = item.sentence
+//        cell.titleString = item.title
+        
+        let item = classifiedData[indexPath.section]?.datas[indexPath.row]
+        cell.previewString = item?.sentence
+        cell.titleString = item?.title
         return cell
     }
 
@@ -112,10 +120,54 @@ class ListViewController: UITableViewController {
     private func loadDairyData() {
         
         dairyDatas = realm.objects(DairyData.self).sorted(byKeyPath: "id", ascending: false)
+        classifyData(dairyDatas: dairyDatas)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
         
     }
+    
+    private func classifyData(dairyDatas: Results<DairyData>?) {
+        
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let secondFormatter = DateFormatter()
+        secondFormatter.dateFormat = "yyyy/MM/dd"
+        
+
+        var oldDateString: String?
+        var i = 0
+        for dairyData in dairyDatas! {
+            
+//            print(dairyData)
+            let date1 = dateFormatter.date(from: dairyData.title)
+//            print(date1)
+            let newDate = secondFormatter.string(from: date1!) //String
+            
+            if let oldDate = oldDateString {
+                
+                if newDate == oldDate {
+                    classifiedData[i]?.datas.append(dairyData)
+                } else {
+                    i += 1
+//                    classifiedData[i]?.title = newDate
+//                    classifiedData[i]?.datas.append(dairyData)
+                    classifiedData.append(SectionData(datas: [dairyData], title: newDate))
+                }
+                
+            } else {
+                //一つ目の配列を作る
+//                classifiedData[i]?.title = newDate
+//                classifiedData[i]?.datas.append(dairyData)
+                classifiedData.append(SectionData(datas: [dairyData], title: newDate))
+            }
+            
+            oldDateString = newDate
+            
+        }
+        
+    }
+    
     
 }
