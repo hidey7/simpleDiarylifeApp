@@ -7,16 +7,22 @@ class ListViewController: UITableViewController {
     private let realm = try! Realm()
 
     private var classifiedData : [SectionData?] = []
-//    private var sectionTitleArray = [String()]
     
-    @IBAction func printData(_ sender: UIBarButtonItem) {
-        print(dairyDatas)
-    }
+//    @IBAction func printData(_ sender: UIBarButtonItem) {
+//        for dairyData in dairyDatas! {
+//            print(dairyData)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "detailCell")
+       
+        if let navBarHeight = navigationController?.navigationBar.frame.height {
+            tableView.contentInset = UIEdgeInsets(top: navBarHeight * 0.5, left: 0, bottom: 0, right: 0)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +37,7 @@ class ListViewController: UITableViewController {
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 //既にデータがある場合
-                nextVC.selectedData = dairyDatas![indexPath.row]
+                nextVC.selectedData = classifiedData[indexPath.section]?.datas[indexPath.row]
             } else {
                 //データを新規作成した場合
                 let formatter = DateFormatter()
@@ -53,27 +59,25 @@ class ListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
         return classifiedData.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return dairyDatas!.count
         return classifiedData[section]!.datas.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
-//        let item = dairyDatas![indexPath.row]
-//        cell.previewString = item.sentence
-//        cell.titleString = item.title
-        
         let item = classifiedData[indexPath.section]?.datas[indexPath.row]
         cell.previewString = item?.sentence
-        cell.titleString = item?.title
+        cell.titleString = String(item!.title.suffix(5))
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return classifiedData[section]?.title
+    }
+    
     //スワイプでセル削除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -130,6 +134,8 @@ class ListViewController: UITableViewController {
     private func classifyData(dairyDatas: Results<DairyData>?) {
         
 
+        classifiedData = []
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
         let secondFormatter = DateFormatter()
@@ -140,33 +146,26 @@ class ListViewController: UITableViewController {
         var i = 0
         for dairyData in dairyDatas! {
             
-//            print(dairyData)
-            let date1 = dateFormatter.date(from: dairyData.title)
-//            print(date1)
+            let date1 = dateFormatter.date(from: dairyData.title) //Date
             let newDate = secondFormatter.string(from: date1!) //String
             
             if let oldDate = oldDateString {
-                
                 if newDate == oldDate {
                     classifiedData[i]?.datas.append(dairyData)
                 } else {
                     i += 1
-//                    classifiedData[i]?.title = newDate
-//                    classifiedData[i]?.datas.append(dairyData)
                     classifiedData.append(SectionData(datas: [dairyData], title: newDate))
                 }
                 
             } else {
                 //一つ目の配列を作る
-//                classifiedData[i]?.title = newDate
-//                classifiedData[i]?.datas.append(dairyData)
+                //for文の初め
                 classifiedData.append(SectionData(datas: [dairyData], title: newDate))
             }
             
             oldDateString = newDate
             
         }
-        
     }
     
     

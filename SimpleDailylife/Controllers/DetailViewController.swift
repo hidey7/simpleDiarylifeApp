@@ -42,13 +42,25 @@ class DetailViewController: UIViewController {
     
     @objc func keyboardWillHide(notification: Notification) {
         let contentInsets = UIEdgeInsets.zero
-            textView.contentInset = contentInsets
-            textView.scrollIndicatorInsets = contentInsets
+        textView.contentInset = contentInsets
+        textView.scrollIndicatorInsets = contentInsets
     }
     
     override func viewDidAppear(_ animated: Bool) {
         textView.becomeFirstResponder()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if !textView.text.isEmpty {
+            if realm.object(ofType: DairyData.self, forPrimaryKey: self.id) == nil {
+                save(dailyData: DairyData(title: self.titleString, sentence: textView.text, id: self.id))
+            } else {
+                update(with: textView.text)
+            }
+        }
+    }
+    
     
 }
 
@@ -60,20 +72,6 @@ extension DetailViewController: UITextViewDelegate {
         return true
     }
     
-    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
-        
-        if !textView.text.isEmpty {
-            
-            if realm.object(ofType: DairyData.self, forPrimaryKey: self.id) == nil {
-                save(dailyData: DairyData(title: self.titleString, sentence: textView.text, id: self.id))
-            } else {
-                update(with: textView.text)
-            }
-            
-        }
-        //ここで文章を保存。NavigationVCのrootに戻る時に発動。
-        return true
-    }
     
     func textViewDidChange(_ textView: UITextView) {
     }

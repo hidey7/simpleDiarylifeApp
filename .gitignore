@@ -1,6 +1,5 @@
-*.storyboard
 Podfile*
 Pods
 SimpleDailylife.xcworkspace/
 *.xib
-
+*storyboard
