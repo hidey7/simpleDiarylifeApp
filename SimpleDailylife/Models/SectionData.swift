@@ -8,6 +8,6 @@
 import Foundation
 
 struct SectionData {
-    var datas : [DairyData?]
+    var datas : [DairyData?] = []
     var title : String!
 }

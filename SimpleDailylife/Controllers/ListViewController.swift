@@ -5,20 +5,20 @@ class ListViewController: UITableViewController {
     
     private var dairyDatas: Results<DairyData>?
     private let realm = try! Realm()
+    
+    private var testDatas: Results<DairyData>?
 
     private var classifiedData : [SectionData?] = []
     
-//    @IBAction func printData(_ sender: UIBarButtonItem) {
-//        for dairyData in dairyDatas! {
-//            print(dairyData)
-//        }
-//    }
+    @IBAction func printData(_ sender: UIBarButtonItem) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "detailCell")
        
+        
         if let navBarHeight = navigationController?.navigationBar.frame.height {
             tableView.contentInset = UIEdgeInsets(top: navBarHeight * 0.5, left: 0, bottom: 0, right: 0)
         }
@@ -28,6 +28,7 @@ class ListViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadDairyData()
+//        makeArrayForTest()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,28 +79,46 @@ class ListViewController: UITableViewController {
         return classifiedData[section]?.title
     }
     
+    private func getNumberOfDatasInSections(section: inout Int) -> Int {
+        
+        var number = 0
+        if section == 0 {
+            return 0
+        }
+        
+        for i in 0..<section {
+            number += (classifiedData[section - (i+1)]?.datas.count)!
+        }
+        
+        return number
+        
+    }
+    
     //スワイプでセル削除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
+            tableView.beginUpdates()
+            var section = indexPath.section
+            let numberOfDatasInPreviousSections = getNumberOfDatasInSections(section: &section)
+            let id = dairyDatas!.count - (numberOfDatasInPreviousSections + (indexPath.row + 1))
             
-            let id = dairyDatas!.count - (indexPath.row + 1)
-            
-            let deleteData = dairyDatas![indexPath.row]
+            let deleteData = dairyDatas![numberOfDatasInPreviousSections + indexPath.row]
             try! realm.write {
                 realm.delete(deleteData)
             }
             
-            if indexPath.row != 0 {
+            if (numberOfDatasInPreviousSections + indexPath.row) != 0 {
                 
-                for i in 1...indexPath.row {
+                for i in 1...(numberOfDatasInPreviousSections + indexPath.row) {
                     
                     let newData = DairyData()
-                    newData.title = dairyDatas![indexPath.row - i].title
-                    newData.sentence = dairyDatas![indexPath.row - i].sentence
+                    newData.title = dairyDatas![(numberOfDatasInPreviousSections + indexPath.row) - i].title
+                    newData.sentence = dairyDatas![(numberOfDatasInPreviousSections + indexPath.row) - i].sentence
                     newData.id = id + (i - 1)
                     try! realm.write {
                         realm.add(newData, update: .modified)
-                        realm.delete(dairyDatas![indexPath.row - i])
+                        realm.delete(dairyDatas![(numberOfDatasInPreviousSections + indexPath.row) - i])
                     }
                     
                 }
@@ -107,10 +126,14 @@ class ListViewController: UITableViewController {
             }
             
             dairyDatas = realm.objects(DairyData.self).sorted(byKeyPath: "id", ascending: false)
-            
-            
+            classifyData(dairyDatas: dairyDatas)
+            if classifiedData.count != tableView.numberOfSections {
+                tableView.deleteSections(IndexSet([indexPath.section]), with: .fade)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
         }
+        
     }
     
     
@@ -145,7 +168,6 @@ class ListViewController: UITableViewController {
         var oldDateString: String?
         var i = 0
         for dairyData in dairyDatas! {
-            
             let date1 = dateFormatter.date(from: dairyData.title) //Date
             let newDate = secondFormatter.string(from: date1!) //String
             
@@ -170,3 +192,37 @@ class ListViewController: UITableViewController {
     
     
 }
+
+
+//MARK: - Extension for TEST
+//extension ListViewController {
+//
+//    func makeArrayForTest() {
+//
+//        try! realm.write {
+//            realm.deleteAll()
+//        }
+//
+//        save(dairyData: DairyData(title: "2023/03/13 13:13", sentence: "first", id: 0))
+//        save(dairyData: DairyData(title: "2023/03/14 14:14", sentence: "second", id: 1))
+//        save(dairyData: DairyData(title: "2023/03/15 15:15", sentence: "third", id: 2))
+//
+//        dairyDatas = realm.objects(DairyData.self).sorted(byKeyPath: "id", ascending: false)
+//        classifyData(dairyDatas: dairyDatas)
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//
+//    }
+//
+//    private func save(dairyData: DairyData) {
+//        do {
+//            try realm.write {
+//                realm.add(dairyData)
+//            }
+//        } catch {
+//            print("Saving error, \(error)")
+//        }
+//    }
+//
+//}
