@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		356A424F5E3129137D0795C2 /* Pods_SimpleDailylife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86046448AB05FE9D1DAB426B /* Pods_SimpleDailylife.framework */; };
 		C15D859629DB0A0E00EC04E6 /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D859529DB0A0E00EC04E6 /* SectionData.swift */; };
+		C16A893429F4C2E300D72152 /* DiaryDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */; };
+		C1AFE96F2A0AACF000FA229F /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */; };
 		C1C9780F29A440E900A31503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9780E29A440E900A31503 /* AppDelegate.swift */; };
 		C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C9781029A440E900A31503 /* SceneDelegate.swift */; };
 		C1C9781629A440E900A31503 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C9781429A440E900A31503 /* Main.storyboard */; };
@@ -25,6 +27,9 @@
 		6901F782FA64C9DF17B64F51 /* Pods-SimpleDailylife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDailylife.release.xcconfig"; path = "Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife.release.xcconfig"; sourceTree = "<group>"; };
 		86046448AB05FE9D1DAB426B /* Pods_SimpleDailylife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleDailylife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15D859529DB0A0E00EC04E6 /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
+		C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataBrain.swift; sourceTree = "<group>"; };
+		C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
+		C1BDA1CC2A04BF460084EC02 /* SimpleDailylife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleDailylife.entitlements; sourceTree = "<group>"; };
 		C1C9780B29A440E900A31503 /* SimpleDailylife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDailylife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C9780E29A440E900A31503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1C9781029A440E900A31503 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		C1C9780D29A440E900A31503 /* SimpleDailylife */ = {
 			isa = PBXGroup;
 			children = (
+				C1BDA1CC2A04BF460084EC02 /* SimpleDailylife.entitlements */,
 				C1C9780E29A440E900A31503 /* AppDelegate.swift */,
 				C1C9781029A440E900A31503 /* SceneDelegate.swift */,
 				C1C9782429A4410E00A31503 /* Controllers */,
@@ -120,6 +126,7 @@
 			children = (
 				C1C9782D29A4D2E200A31503 /* DiaryData.swift */,
 				C15D859529DB0A0E00EC04E6 /* SectionData.swift */,
+				C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,6 +137,7 @@
 				C1C9782929A4468B00A31503 /* ListViewController.swift */,
 				C1C9782B29A446D300A31503 /* DetailViewController.swift */,
 				C1FE00D929AC81B8002376ED /* DetailCell.swift */,
+				C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -252,10 +260,12 @@
 			files = (
 				C1C9780F29A440E900A31503 /* AppDelegate.swift in Sources */,
 				C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */,
+				C1AFE96F2A0AACF000FA229F /* ExportViewController.swift in Sources */,
 				C1FE00DB29AC81B8002376ED /* DetailCell.swift in Sources */,
 				C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */,
 				C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */,
 				C15D859629DB0A0E00EC04E6 /* SectionData.swift in Sources */,
+				C16A893429F4C2E300D72152 /* DiaryDataBrain.swift in Sources */,
 				C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,8 +412,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleDailylife/SimpleDailylife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = R43R4Y2L5Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleDailylife/Info.plist;
@@ -417,9 +428,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hideya.QuickJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -432,8 +446,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SimpleDailylife/SimpleDailylife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = R43R4Y2L5Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleDailylife/Info.plist;
@@ -447,9 +462,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hideya.QuickJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
