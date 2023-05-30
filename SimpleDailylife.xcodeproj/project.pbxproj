@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		356A424F5E3129137D0795C2 /* Pods_SimpleDailylife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86046448AB05FE9D1DAB426B /* Pods_SimpleDailylife.framework */; };
+		C142EB672A1594860006B90E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C142EB662A1594860006B90E /* SettingViewController.swift */; };
+		C14768BF2A1C05D900FEBD9B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14768BE2A1C05D900FEBD9B /* AppSettings.swift */; };
+		C14768C62A1C07B100FEBD9B /* ExportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14768C42A1C07B100FEBD9B /* ExportCell.swift */; };
+		C14768C72A1C07B100FEBD9B /* ExportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C14768C52A1C07B100FEBD9B /* ExportCell.xib */; };
+		C14768CA2A1C07F800FEBD9B /* PreviewSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14768C82A1C07F800FEBD9B /* PreviewSettingCell.swift */; };
+		C14768CB2A1C07F800FEBD9B /* PreviewSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C14768C92A1C07F800FEBD9B /* PreviewSettingCell.xib */; };
 		C15D859629DB0A0E00EC04E6 /* SectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15D859529DB0A0E00EC04E6 /* SectionData.swift */; };
 		C16A893429F4C2E300D72152 /* DiaryDataBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */; };
 		C1AFE96F2A0AACF000FA229F /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */; };
@@ -26,6 +32,12 @@
 /* Begin PBXFileReference section */
 		6901F782FA64C9DF17B64F51 /* Pods-SimpleDailylife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleDailylife.release.xcconfig"; path = "Target Support Files/Pods-SimpleDailylife/Pods-SimpleDailylife.release.xcconfig"; sourceTree = "<group>"; };
 		86046448AB05FE9D1DAB426B /* Pods_SimpleDailylife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleDailylife.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C142EB662A1594860006B90E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C14768BE2A1C05D900FEBD9B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		C14768C42A1C07B100FEBD9B /* ExportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCell.swift; sourceTree = "<group>"; };
+		C14768C52A1C07B100FEBD9B /* ExportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportCell.xib; sourceTree = "<group>"; };
+		C14768C82A1C07F800FEBD9B /* PreviewSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSettingCell.swift; sourceTree = "<group>"; };
+		C14768C92A1C07F800FEBD9B /* PreviewSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewSettingCell.xib; sourceTree = "<group>"; };
 		C15D859529DB0A0E00EC04E6 /* SectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionData.swift; sourceTree = "<group>"; };
 		C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataBrain.swift; sourceTree = "<group>"; };
 		C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +127,8 @@
 		C1C9782229A4410100A31503 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C14768C52A1C07B100FEBD9B /* ExportCell.xib */,
+				C14768C92A1C07F800FEBD9B /* PreviewSettingCell.xib */,
 				C1C9781429A440E900A31503 /* Main.storyboard */,
 				C1FE00DA29AC81B8002376ED /* DetailCell.xib */,
 			);
@@ -127,6 +141,7 @@
 				C1C9782D29A4D2E200A31503 /* DiaryData.swift */,
 				C15D859529DB0A0E00EC04E6 /* SectionData.swift */,
 				C16A893329F4C2E300D72152 /* DiaryDataBrain.swift */,
+				C14768BE2A1C05D900FEBD9B /* AppSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,6 +153,9 @@
 				C1C9782B29A446D300A31503 /* DetailViewController.swift */,
 				C1FE00D929AC81B8002376ED /* DetailCell.swift */,
 				C1AFE96E2A0AACF000FA229F /* ExportViewController.swift */,
+				C142EB662A1594860006B90E /* SettingViewController.swift */,
+				C14768C42A1C07B100FEBD9B /* ExportCell.swift */,
+				C14768C82A1C07F800FEBD9B /* PreviewSettingCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,9 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1C9781B29A440EB00A31503 /* LaunchScreen.storyboard in Resources */,
+				C14768C72A1C07B100FEBD9B /* ExportCell.xib in Resources */,
 				C1C9781829A440EB00A31503 /* Assets.xcassets in Resources */,
 				C1FE00DC29AC81B8002376ED /* DetailCell.xib in Resources */,
 				C1C9781629A440E900A31503 /* Main.storyboard in Resources */,
+				C14768CB2A1C07F800FEBD9B /* PreviewSettingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +282,13 @@
 				C1C9782A29A4468B00A31503 /* ListViewController.swift in Sources */,
 				C1AFE96F2A0AACF000FA229F /* ExportViewController.swift in Sources */,
 				C1FE00DB29AC81B8002376ED /* DetailCell.swift in Sources */,
+				C14768CA2A1C07F800FEBD9B /* PreviewSettingCell.swift in Sources */,
 				C1C9782E29A4D2E200A31503 /* DiaryData.swift in Sources */,
+				C142EB672A1594860006B90E /* SettingViewController.swift in Sources */,
 				C1C9781129A440E900A31503 /* SceneDelegate.swift in Sources */,
+				C14768BF2A1C05D900FEBD9B /* AppSettings.swift in Sources */,
 				C15D859629DB0A0E00EC04E6 /* SectionData.swift in Sources */,
+				C14768C62A1C07B100FEBD9B /* ExportCell.swift in Sources */,
 				C16A893429F4C2E300D72152 /* DiaryDataBrain.swift in Sources */,
 				C1C9782C29A446D300A31503 /* DetailViewController.swift in Sources */,
 			);
@@ -414,7 +438,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleDailylife/SimpleDailylife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R43R4Y2L5Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleDailylife/Info.plist;
@@ -428,7 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hideya.QuickJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -448,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SimpleDailylife/SimpleDailylife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = R43R4Y2L5Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SimpleDailylife/Info.plist;
@@ -462,7 +486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hideya.QuickJournal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

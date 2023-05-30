@@ -15,6 +15,8 @@ class ListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(doSomething), name: AppSettings.notifyName, object: nil)
 
         self.tableView.register(UINib(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "detailCell")
        
@@ -23,6 +25,10 @@ class ListViewController: UITableViewController {
             tableView.contentInset = UIEdgeInsets(top: navBarHeight * 0.5, left: 0, bottom: 0, right: 0)
         }
         
+    }
+    
+    @objc func doSomething() {
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,8 +76,17 @@ class ListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! DetailCell
         let item = classifiedData[indexPath.section]?.datas[indexPath.row]
-        cell.previewString = item?.sentence
-        cell.titleString = String(item!.title.suffix(5))
+        
+        if AppSettings.shared.previewIsHidden == true {
+            cell.previewLabel.isHidden = true
+            cell.titleString = String(item!.title.suffix(5))
+            cell.layoutIfNeeded()
+        } else {
+            cell.previewLabel.isHidden = false
+            cell.previewString = item?.sentence
+            cell.titleString = String(item!.title.suffix(5))
+            cell.layoutIfNeeded()
+        }
         return cell
     }
 

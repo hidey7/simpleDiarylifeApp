@@ -6,7 +6,7 @@ class ExportViewController: UIViewController {
 
     @IBOutlet weak var pdfView: PDFView!
     
-    var originalDatas: Results<DairyData>? //ListVCから直接もらう
+    var originalDatas: Results<DairyData>? 
     private let realm = try! Realm()
     
     

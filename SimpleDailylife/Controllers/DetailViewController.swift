@@ -32,6 +32,18 @@ class DetailViewController: UIViewController {
         
     }
     
+    
+    @IBAction func saveData(_ sender: Any) {
+        if !textView.text.isEmpty {
+            if realm.object(ofType: DairyData.self, forPrimaryKey: self.id) == nil {
+                save(dailyData: DairyData(title: self.titleString, sentence: textView.text, id: self.id))
+            } else {
+                update(with: textView.text)
+            }
+        }
+    }
+    
+    
     @objc func keyboardWillShow(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
